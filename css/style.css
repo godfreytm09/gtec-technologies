@@ -156,11 +156,12 @@ textarea {
 
     gap: 60px;
 
-    background: linear-gradient(
-        135deg,
-        #08182d,
-        #0b1f3a
-    );
+    background:
+    linear-gradient(
+        rgba(8, 24, 45, 0.78),
+        rgba(8, 24, 45, 0.78)
+    ),
+    url("../images/hero-background.png") center center / cover no-repeat;
 
     color: #ffffff;
 }
