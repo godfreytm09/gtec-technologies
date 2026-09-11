@@ -110,18 +110,22 @@ contactForm.addEventListener("submit", async function (event) {
     // NAME VALIDATION
     // =====================================================
 
-    if (name.value.length < 2) {
+    const namePattern = /^[A-Za-zÀ-ÿ\s]+$/;
 
-        formStatus.textContent =
-            "Please enter your full name.";
+if (
+    name.value.length < 2 ||
+    !namePattern.test(name.value)
+) {
 
-        formStatus.className = "form-error";
+    formStatus.textContent =
+        "Please enter a valid name using letters only.";
 
-        name.focus();
+    formStatus.className = "form-error";
 
-        return;
-    }
+    name.focus();
 
+    return;
+}
 
     // =====================================================
     // EMAIL VALIDATION
@@ -149,20 +153,19 @@ contactForm.addEventListener("submit", async function (event) {
 
     // Allows international phone numbers with spaces,
     // + sign, brackets and hyphens.
-    const phonePattern =
-        /^\+?[0-9\s().-]{7,20}$/;
+    const phonePattern = /^\+?[0-9\s]+$/;
 
-    if (!phonePattern.test(phone.value)) {
+if (!phonePattern.test(phone.value)) {
 
-        formStatus.textContent =
-            "Please enter a valid phone number.";
+    formStatus.textContent =
+        "Please enter a valid phone number using numbers only. The + sign is allowed at the beginning.";
 
-        formStatus.className = "form-error";
+    formStatus.className = "form-error";
 
-        phone.focus();
+    phone.focus();
 
-        return;
-    }
+    return;
+}
 
 
     // =====================================================
