@@ -1556,24 +1556,21 @@ textarea {
 
 .footer {
     background-color: #08182d;
-
     color: #ffffff;
-
     padding: 70px 8% 0;
 }
 
 .footer-container {
     display: grid;
-
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
-
     gap: 50px;
-
     padding-bottom: 50px;
 }
 
 
-/* Footer company */
+/* =========================================================
+   FOOTER COMPANY
+   ========================================================= */
 
 .footer-company {
     max-width: 350px;
@@ -1581,111 +1578,108 @@ textarea {
 
 .footer-logo {
     font-size: 24px;
-
     font-weight: bold;
-
+    letter-spacing: 0.5px;
     margin-bottom: 20px;
 }
 
 .footer-logo span {
     color: #2da9ff;
 }
-.footer-logo {
-    letter-spacing: 0.5px;
-}
 
 .footer-company > p {
     color: #b8c7d9;
-
     font-size: 14px;
-
     line-height: 1.8;
 }
 
 
-/* Footer headings */
+/* =========================================================
+   FOOTER HEADINGS
+   ========================================================= */
 
 .footer-column h3 {
     font-size: 17px;
-
     margin-top: 0;
-
     margin-bottom: 20px;
 }
 
 
-/* Footer links */
+/* =========================================================
+   FOOTER LINKS
+   ========================================================= */
 
 .footer-column > a {
     display: block;
-
     color: #b8c7d9;
-
     text-decoration: none;
-
     font-size: 14px;
-
     margin-bottom: 12px;
-
     transition: 0.3s ease;
 }
 
 .footer-column > a:hover {
     color: #2da9ff;
-
     transform: translateX(4px);
 }
 
 
-/* Footer contact */
+/* =========================================================
+   FOOTER CONTACT
+   ========================================================= */
 
 .footer-column > p {
     color: #b8c7d9;
-
     font-size: 14px;
-
     margin-bottom: 12px;
 }
 
+.footer-column > p a {
+    color: #b8c7d9;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
 
-/* Social links */
+.footer-column > p a:hover {
+    color: #2da9ff;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+   ========================================================= */
 
 .social-links {
     display: flex;
-
     gap: 10px;
-
     margin-top: 25px;
-
     flex-wrap: wrap;
 }
 
 .social-links a {
     color: #ffffff;
-
     text-decoration: none;
-
     font-size: 12px;
+    font-weight: 600;
 
-    padding: 8px 12px;
+    padding: 8px 13px;
 
     border: 1px solid #38506b;
-
-    border-radius: 4px;
+    border-radius: 5px;
 
     transition: 0.3s ease;
 }
 
 .social-links a:hover {
     background-color: #2da9ff;
-
     border-color: #2da9ff;
-
     transform: translateY(-2px);
 }
 
 
-/* Footer bottom */
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -1693,7 +1687,6 @@ textarea {
     padding: 25px 0;
 
     display: flex;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -1701,9 +1694,7 @@ textarea {
 
 .footer-bottom p {
     color: #8294a8;
-
     font-size: 13px;
-
     margin: 0;
 }
 
