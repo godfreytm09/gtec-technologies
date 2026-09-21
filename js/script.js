@@ -338,43 +338,70 @@ contactForm.addEventListener("submit", async function (event) {
 });
 // Website search
 const searchButton = document.getElementById("search-button");
+const searchPanel = document.getElementById("search-panel");
+const searchInput = document.getElementById("search-input");
+const searchSubmit = document.getElementById("search-submit");
 
-if (searchButton) {
+const searchMap = {
+    "home": "#home",
+    "about": "#about",
+    "about us": "#about",
+    "services": "#services",
+    "it support": "#it-support",
+    "technical support": "#it-support",
+    "web development": "#web-development",
+    "remote support": "#remote-support",
+    "pos": "#pos-solutions",
+    "pos solutions": "#pos-solutions",
+    "graphic design": "#graphic-design",
+    "it training": "#it-training",
+    "training": "#it-training",
+    "portfolio": "#portfolio",
+    "testimonials": "#testimonials",
+    "contact": "#contact",
+    "quote": "#contact"
+};
+
+if (searchButton && searchPanel && searchInput && searchSubmit) {
+
     searchButton.addEventListener("click", function () {
-        const searchTerm = prompt("What would you like to search for?");
+        searchPanel.classList.toggle("active");
 
-        if (!searchTerm) return;
+        if (searchPanel.classList.contains("active")) {
+            searchInput.focus();
+        }
+    });
 
-        const term = searchTerm.toLowerCase().trim();
+    function performSearch() {
+        const term = searchInput.value.toLowerCase().trim();
 
-        const searchMap = {
-            "home": "#home",
-            "about": "#about",
-            "about us": "#about",
-            "services": "#services",
-            "it support": "#it-support",
-            "technical support": "#it-support",
-            "web development": "#web-development",
-            "remote support": "#remote-support",
-            "pos": "#pos-solutions",
-            "pos solutions": "#pos-solutions",
-            "graphic design": "#graphic-design",
-            "it training": "#it-training",
-            "training": "#it-training",
-            "portfolio": "#portfolio",
-            "testimonials": "#testimonials",
-            "contact": "#contact",
-            "quote": "#contact"
-        };
+        if (!term) {
+            return;
+        }
 
         const target = searchMap[term];
 
         if (target) {
+            searchPanel.classList.remove("active");
+
             document.querySelector(target).scrollIntoView({
                 behavior: "smooth"
             });
+
+            searchInput.value = "";
         } else {
             alert("Sorry, we couldn't find what you're looking for.");
+        }
+    }
+
+    searchSubmit.addEventListener("click", performSearch);
+
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            performSearch();
+        }
+    });
+}d what you're looking for.");
         }
     });
 }
