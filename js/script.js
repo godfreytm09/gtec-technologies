@@ -401,7 +401,4 @@ if (searchButton && searchPanel && searchInput && searchSubmit) {
             performSearch();
         }
     });
-}d what you're looking for.");
-        }
-    });
 }
