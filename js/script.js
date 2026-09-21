@@ -482,7 +482,34 @@ if (searchButton && searchPanel && searchInput && searchSubmit) {
             return;
         }
 
-        const target = searchMap[term];
+        let target = null;
+
+for (const category in searchKeywords) {
+    const matched = searchKeywords[category].some(function (keyword) {
+        return term.includes(keyword);
+    });
+
+    if (matched) {
+        const targets = {
+            home: "#home",
+            about: "#about",
+            services: "#services",
+            itSupport: "#it-support",
+            webDevelopment: "#web-development",
+            remoteSupport: "#remote-support",
+            pos: "#pos-solutions",
+            graphicDesign: "#graphic-design",
+            training: "#it-training",
+            portfolio: "#portfolio",
+            testimonials: "#testimonials",
+            contact: "#contact"
+        };
+
+        target = targets[category];
+        break;
+    }
+}
+        
 
        if (target) {
     searchPanel.classList.remove("active");
