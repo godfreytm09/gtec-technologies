@@ -336,3 +336,45 @@ contactForm.addEventListener("submit", async function (event) {
         "Send Message →";
 
 });
+// Website search
+const searchButton = document.getElementById("search-button");
+
+if (searchButton) {
+    searchButton.addEventListener("click", function () {
+        const searchTerm = prompt("What would you like to search for?");
+
+        if (!searchTerm) return;
+
+        const term = searchTerm.toLowerCase().trim();
+
+        const searchMap = {
+            "home": "#home",
+            "about": "#about",
+            "about us": "#about",
+            "services": "#services",
+            "it support": "#it-support",
+            "technical support": "#it-support",
+            "web development": "#web-development",
+            "remote support": "#remote-support",
+            "pos": "#pos-solutions",
+            "pos solutions": "#pos-solutions",
+            "graphic design": "#graphic-design",
+            "it training": "#it-training",
+            "training": "#it-training",
+            "portfolio": "#portfolio",
+            "testimonials": "#testimonials",
+            "contact": "#contact",
+            "quote": "#contact"
+        };
+
+        const target = searchMap[term];
+
+        if (target) {
+            document.querySelector(target).scrollIntoView({
+                behavior: "smooth"
+            });
+        } else {
+            alert("Sorry, we couldn't find what you're looking for.");
+        }
+    });
+}
