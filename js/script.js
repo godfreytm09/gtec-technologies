@@ -342,24 +342,127 @@ const searchPanel = document.getElementById("search-panel");
 const searchInput = document.getElementById("search-input");
 const searchSubmit = document.getElementById("search-submit");
 
-const searchMap = {
-    "home": "#home",
-    "about": "#about",
-    "about us": "#about",
-    "services": "#services",
-    "it support": "#it-support",
-    "technical support": "#it-support",
-    "web development": "#web-development",
-    "remote support": "#remote-support",
-    "pos": "#pos-solutions",
-    "pos solutions": "#pos-solutions",
-    "graphic design": "#graphic-design",
-    "it training": "#it-training",
-    "training": "#it-training",
-    "portfolio": "#portfolio",
-    "testimonials": "#testimonials",
-    "contact": "#contact",
-    "quote": "#contact"
+const searchKeywords = {
+    home: [
+        "home",
+        "main",
+        "start"
+    ],
+
+    about: [
+        "about",
+        "company",
+        "business",
+        "who are you",
+        "who we are"
+    ],
+
+    services: [
+        "services",
+        "service",
+        "solutions",
+        "technology"
+    ],
+
+    itSupport: [
+        "it support",
+        "technical support",
+        "computer",
+        "computers",
+        "repair",
+        "troubleshooting",
+        "maintenance",
+        "hardware",
+        "software",
+        "technician",
+        "technical"
+    ],
+
+    webDevelopment: [
+        "web",
+        "website",
+        "websites",
+        "web development",
+        "web design",
+        "coding",
+        "programming",
+        "online",
+        "web system"
+    ],
+
+    remoteSupport: [
+        "remote",
+        "remote support",
+        "online support",
+        "remote assistance",
+        "remote help"
+    ],
+
+    pos: [
+        "pos",
+        "point of sale",
+        "point-of-sale",
+        "stock",
+        "inventory",
+        "retail",
+        "sales system",
+        "cashier"
+    ],
+
+    graphicDesign: [
+        "design",
+        "graphic",
+        "graphics",
+        "branding",
+        "logo",
+        "logos",
+        "poster",
+        "flyer",
+        "creative"
+    ],
+
+    training: [
+        "training",
+        "it training",
+        "programming training",
+        "classes",
+        "learning",
+        "education",
+        "java",
+        "c++",
+        "coding training",
+        "skills"
+    ],
+
+    portfolio: [
+        "portfolio",
+        "projects",
+        "project",
+        "work",
+        "recent work"
+    ],
+
+    testimonials: [
+        "testimonials",
+        "testimonial",
+        "reviews",
+        "review",
+        "feedback",
+        "clients"
+    ],
+
+    contact: [
+        "contact",
+        "contact us",
+        "get in touch",
+        "phone",
+        "email",
+        "whatsapp",
+        "quote",
+        "quotation",
+        "enquiry",
+        "inquiry"
+    ]
 };
 
 if (searchButton && searchPanel && searchInput && searchSubmit) {
