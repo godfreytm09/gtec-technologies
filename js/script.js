@@ -336,35 +336,37 @@ contactForm.addEventListener("submit", async function (event) {
         "Send Message →";
 
 });
-// Website search
+// =========================================================
+// WEBSITE SEARCH
+// =========================================================
+
 const searchButton = document.getElementById("search-button");
 const searchPanel = document.getElementById("search-panel");
 const searchInput = document.getElementById("search-input");
 const searchSubmit = document.getElementById("search-submit");
 
 const searchKeywords = {
-    home: [
+    "#home": [
         "home",
         "main",
         "start"
     ],
 
-    about: [
+    "#about": [
         "about",
         "company",
         "business",
-        "who are you",
         "who we are"
     ],
 
-    services: [
+    "#services": [
         "services",
         "service",
         "solutions",
         "technology"
     ],
 
-    itSupport: [
+    "#it-support": [
         "it support",
         "technical support",
         "computer",
@@ -378,7 +380,7 @@ const searchKeywords = {
         "technical"
     ],
 
-    webDevelopment: [
+    "#web-development": [
         "web",
         "website",
         "websites",
@@ -386,11 +388,10 @@ const searchKeywords = {
         "web design",
         "coding",
         "programming",
-        "online",
         "web system"
     ],
 
-    remoteSupport: [
+    "#remote-support": [
         "remote",
         "remote support",
         "online support",
@@ -398,7 +399,7 @@ const searchKeywords = {
         "remote help"
     ],
 
-    pos: [
+    "#pos-solutions": [
         "pos",
         "point of sale",
         "point-of-sale",
@@ -409,7 +410,7 @@ const searchKeywords = {
         "cashier"
     ],
 
-    graphicDesign: [
+    "#graphic-design": [
         "design",
         "graphic",
         "graphics",
@@ -421,7 +422,7 @@ const searchKeywords = {
         "creative"
     ],
 
-    training: [
+    "#it-training": [
         "training",
         "it training",
         "programming training",
@@ -434,7 +435,7 @@ const searchKeywords = {
         "skills"
     ],
 
-    portfolio: [
+    "#portfolio": [
         "portfolio",
         "projects",
         "project",
@@ -442,7 +443,7 @@ const searchKeywords = {
         "recent work"
     ],
 
-    testimonials: [
+    "#testimonials": [
         "testimonials",
         "testimonial",
         "reviews",
@@ -451,7 +452,7 @@ const searchKeywords = {
         "clients"
     ],
 
-    contact: [
+    "#contact": [
         "contact",
         "contact us",
         "get in touch",
@@ -465,17 +466,24 @@ const searchKeywords = {
     ]
 };
 
+
 if (searchButton && searchPanel && searchInput && searchSubmit) {
 
+    // Open and close search panel
     searchButton.addEventListener("click", function () {
+
         searchPanel.classList.toggle("active");
 
         if (searchPanel.classList.contains("active")) {
             searchInput.focus();
         }
+
     });
 
+
+    // Perform search
     function performSearch() {
+
         const term = searchInput.value.toLowerCase().trim();
 
         if (!term) {
@@ -484,64 +492,93 @@ if (searchButton && searchPanel && searchInput && searchSubmit) {
 
         let target = null;
 
-for (const category in searchKeywords) {
-    const matched = searchKeywords[category].some(function (keyword) {
-        return term.includes(keyword);
-    });
 
-    if (matched) {
-        const targets = {
-            home: "#home",
-            about: "#about",
-            services: "#services",
-            itSupport: "#it-support",
-            webDevelopment: "#web-development",
-            remoteSupport: "#remote-support",
-            pos: "#pos-solutions",
-            graphicDesign: "#graphic-design",
-            training: "#it-training",
-            portfolio: "#portfolio",
-            testimonials: "#testimonials",
-            contact: "#contact"
-        };
+        // Find matching section
+        for (const section in searchKeywords) {
 
-        target = targets[category];
-        break;
-    }
-}
-        
+            const keywords = searchKeywords[section];
 
-       if (target) {
-    searchPanel.classList.remove("active");
+            const matched = keywords.some(function (keyword) {
 
-    // Remove previous service highlights
-    document.querySelectorAll(".service-card").forEach(function (card) {
-        card.classList.remove("selected-service");
-    });
+                return term.includes(keyword.toLowerCase());
 
-    const targetSection = document.querySelector(target);
+            });
 
-    // Highlight the searched service
-    if (targetSection.classList.contains("service-card")) {
-        targetSection.classList.add("selected-service");
-    }
 
-    // Scroll to the search result
-    targetSection.scrollIntoView({
-        behavior: "smooth"
-    });
+            if (matched) {
 
-    searchInput.value = "";
-} else {
-            alert("Sorry, we couldn't find what you're looking for.");
+                target = section;
+
+                break;
+
+            }
+
         }
+
+
+        if (target) {
+
+            // Close search panel
+            searchPanel.classList.remove("active");
+
+
+            // Remove previous service highlights
+            document.querySelectorAll(".service-card").forEach(function (card) {
+
+                card.classList.remove("selected-service");
+
+            });
+
+
+            // Find target section
+            const targetSection = document.querySelector(target);
+
+
+            if (targetSection) {
+
+                // Highlight service if applicable
+                if (targetSection.classList.contains("service-card")) {
+
+                    targetSection.classList.add("selected-service");
+
+                }
+
+
+                // Scroll to result
+                targetSection.scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+            }
+
+
+            // Clear search box
+            searchInput.value = "";
+
+        } else {
+
+            alert("Sorry, we couldn't find what you're looking for.");
+
+        }
+
     }
 
+
+    // Search button
     searchSubmit.addEventListener("click", performSearch);
 
+
+    // Press Enter to search
     searchInput.addEventListener("keydown", function (event) {
+
         if (event.key === "Enter") {
+
             performSearch();
+
         }
+
     });
+
 }
