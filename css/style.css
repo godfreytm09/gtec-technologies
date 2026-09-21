@@ -116,6 +116,22 @@ textarea {
     background-color: #ffffff;
     color: #0b1f3a;
 }
+/* Search button */
+
+.search-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 19px;
+    cursor: pointer;
+    padding: 8px;
+    transition: 0.3s ease;
+}
+
+.search-button:hover {
+    color: #2da9ff;
+    transform: scale(1.1);
+}
 
 
 /* Mobile menu button */
