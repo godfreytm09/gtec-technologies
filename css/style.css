@@ -480,7 +480,10 @@ textarea {
         0 18px 40px rgba(11, 31, 58, 0.12);
 }
 
-.service-card.selected-service {
+.service-card.selected-service,
+.service-card:target {
+    background-color: rgba(11, 31, 58, 0.96);
+
     border-color: #2da9ff;
 
     box-shadow:
@@ -488,22 +491,21 @@ textarea {
         0 20px 45px rgba(11, 31, 58, 0.18);
 
     transform: translateY(-6px);
+
+    transition: all 0.35s ease;
 }
 
 
-/* Highlight selected service */
+/* Selected service text */
 
-.service-card:target {
-    border-color: #2da9ff;
+.service-card.selected-service h3,
+.service-card:target h3 {
+    color: #ffffff;
+}
 
-    box-shadow:
-        0 0 0 3px rgba(45, 169, 255, 0.15),
-        0 18px 40px rgba(11, 31, 58, 0.15);
-
-    transform: translateY(-6px);
-
-    transition: all 0.35s ease;
-
+.service-card.selected-service p,
+.service-card:target p {
+    color: #d5e1ed;
 }
 
  .service-icon {
