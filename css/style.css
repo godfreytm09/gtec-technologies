@@ -1098,6 +1098,24 @@ textarea {
 
     font-size: 14px;
 }
+.project-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background-color: #0b1f3a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.project-button:hover {
+    background-color: #2da9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(45, 169, 255, 0.2);
+}
 /* =========================
    PORTFOLIO PROJECT VISUAL
    ========================= */
