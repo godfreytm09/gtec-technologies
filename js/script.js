@@ -381,15 +381,28 @@ if (searchButton && searchPanel && searchInput && searchSubmit) {
 
         const target = searchMap[term];
 
-        if (target) {
-            searchPanel.classList.remove("active");
+       if (target) {
+    searchPanel.classList.remove("active");
 
-            document.querySelector(target).scrollIntoView({
-                behavior: "smooth"
-            });
+    // Remove previous service highlights
+    document.querySelectorAll(".service-card").forEach(function (card) {
+        card.classList.remove("selected-service");
+    });
 
-            searchInput.value = "";
-        } else {
+    const targetSection = document.querySelector(target);
+
+    // Highlight the searched service
+    if (targetSection.classList.contains("service-card")) {
+        targetSection.classList.add("selected-service");
+    }
+
+    // Scroll to the search result
+    targetSection.scrollIntoView({
+        behavior: "smooth"
+    });
+
+    searchInput.value = "";
+} else {
             alert("Sorry, we couldn't find what you're looking for.");
         }
     }
